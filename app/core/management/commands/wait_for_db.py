@@ -10,7 +10,6 @@ from django.core.management.base import BaseCommand
 
 class Command(BaseCommand):
     """Django command to wait for database"""
-
     def handle(self, *args, **options):
         """Entry point of command"""
         self.stdout.write("Hello")
@@ -21,7 +20,7 @@ class Command(BaseCommand):
                 self.stdout.write("In try")
                 self.check(databases=["default"])
                 db_up = True
-            except Exception as E:
+            except:
                 self.stdout.write("In except")
                 self.stdout.write("Database unavailable, Waiting 1 second...")
                 time.sleep(1)
